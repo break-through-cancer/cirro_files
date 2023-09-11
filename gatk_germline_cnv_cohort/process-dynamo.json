@@ -1,0 +1,42 @@
+{
+  "id": "process-gatk-cnv_germline_cohort-4_4_0_0",
+  "childProcessIds": ["process-gatk-cnv_germline_case-4_4_0_0"],
+  "name": "Germline Variant Discovery (GATK) CNV Germline Cohort",
+  "desc": "GATK CNV Germline Cohort to generate Panel of Normals (GATK/gatk4-cnv-germline-cnv_germline_cohort)",
+  "executor": "CROMWELL",
+  "documentationUrl": "https://gatk.broadinstitute.org/hc/en-us/articles/13832709695259-GermlineCNVCaller",
+  "code": {
+     "repository": "GITHUBPUBLIC",
+    "script": "cnv_germline_cohort_workflow.wdl",
+    "uri": "break-through-cancer/gatk/blob/master/scripts/cnv_wdl/germline",
+    "version": "master"
+  },
+  "paramDefaults": [],
+  "computeDefaults": [
+    {
+      "executor": "NEXTFLOW",
+      "json": "s3://<RESOURCES_BUCKET>/<PROCESS_DIRECTORY>/process-compute.config",
+      "name": "Default"
+    }
+  ],
+  "paramMapJson": "s3://<RESOURCES_BUCKET>/<PROCESS_DIRECTORY>/process-input.json",
+  "formJson": "s3://<RESOURCES_BUCKET>/<PROCESS_DIRECTORY>/process-form.json",
+  "fileJson": "",
+  "componentJson": "",
+  "infoJson": "",
+  "webOptimizationJson": "s3://<RESOURCES_BUCKET>/<PROCESS_DIRECTORY>/process-output.json",
+  "preProcessScript": "s3://<RESOURCES_BUCKET>/<PROCESS_DIRECTORY>/preprocess.py",
+  "fileMappingRules": [
+    {
+      "description": "Genomic Variants (GVCF)",
+      "min": 1,
+      "fileNamePatterns": [
+        {
+          "exampleName": "SampleName.gvcf",
+          "description": "GVCF",
+          "sampleMatchingPattern": "(?P<sampleName>[\\S ]*).gvcf"
+        }
+      ]
+    }
+  ]
+}
