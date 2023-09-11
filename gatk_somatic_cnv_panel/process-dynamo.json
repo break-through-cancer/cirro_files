@@ -1,7 +1,7 @@
 {
   "id": "process-gatk-somatic-cnv-panel-4_4_0_0",
-  "parentDatasetIds": ["process-nf-core-sarek-align-3-2",
-                      "ingest_unaligned_bam"],
+  "parentDatasetIds": ["ingest_unaligned_bam"],
+  "parentProcessIds": ["process-nf-core-sarek-align-3-2"],
   "name": "Somatic Copy Number Variation Panel (GATK)",
   "desc": "creates a panel of normals (PoN).",
   "executor": "CROMWELL",
