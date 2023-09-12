@@ -13,15 +13,7 @@ def setup_inputs(ds: PreprocessDataset):
     ] = ds.params.get(
         "CNVSomaticPanelWorkflow.normal_bais",
         "normal_bais"
-    ).replace(' ', '').split(',')
-
-    # turn comma separated string of normal_bams into list
-    ds.params[
-        "CNVSomaticPanelWorkflow.normal_bams"
-    ] = ds.params.get(
-        "CNVSomaticPanelWorkflow.normal_bams",
-        "normal_bams"
-    ).replace(' ', '').split(',')
+    ).apply(lambda x: x + ".crai")
 
 def setup_options(ds: PreprocessDataset):
 

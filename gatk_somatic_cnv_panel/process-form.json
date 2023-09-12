@@ -1,60 +1,51 @@
 {
-    "form": {
-      "type": "object",
-      "title": "Sample Information",
+  "form": {
       "properties": {
-        "gatk_docker": {
-          "type": "string",
-          "title": "GATK Docker image",
-          "default": "broadinstitute/gatk:latest"
-        },
-        "intervals": {
-          "type": "string",
-          "title": "Intervals",
-          "description": "Picard or GATK-style interval list. For WGS, this should typically only include the autosomal chromosomes."
-        },
-        "normal_bais": {
-          "type": "string",
-          "title": "List of BAI files",
-          "description": "This list must correspond to normal_bams. For example, 'Sample1.bai, Sample2.bai'"
-        },
-        "normal_bams": {
-          "type": "string",
-          "title": "List of BAM files",
-          "description": "This list must correspond to normal_bais. For example, 'Sample1.bam, Sample2.bam'"
-        },
-        "pon_entity_id": {
-          "type": "string",
-          "title": "Name of the final PoN file"
-        },
-        "ref_fasta_dict": {
-          "type": "string",
-          "title": "Path to reference dict file"
-        },
-        "ref_fasta_fai": {
-          "type": "string",
-          "title": "Path to reference fasta fai file"
-        },
-        "ref_fasta": {
-          "type": "string",
-          "title": "Path to reference fasta file"
-        },
-        "do_explicit_gc_correction": {
-            "type": "boolean",
-            "title": "Do Explicit GC Correction",
-            "description": "If true, perform explicit GC-bias correction when creating PoN and in subsequent denoising of case samples. If false, rely on PCA-based denoising to correct for GC bias."
-        },
-        "bin_length": {
-            "type": "integer",
-            "title": "Bin Length",
-            "description": "Size of bins (in bp) for coverage collection. Typically, this is set to 0 for capture samples. This must be the same value used for all case samples."
-        },
-        "padding": {
-            "type": "integer",
-            "title": "Padding",
-            "description": "Amount of padding (in bp) to add to both sides of targets for WES coverage collection. This must be the same value used for all case samples."
-        }
+          "bin_length": {
+              "description": "Size of bins (in bp) for coverage collection. Typically, this is set to 0 for capture samples. This must be the same value used for all case samples.",
+              "title": "Bin Length",
+              "type": "integer"
+          },
+          "do_explicit_gc_correction": {
+              "description": "If true, perform explicit GC-bias correction when creating PoN and in subsequent denoising of case samples. If false, rely on PCA-based denoising to correct for GC bias.",
+              "title": "Do Explicit GC Correction",
+              "type": "boolean",
+              "value": false
+          },
+          "gatk_docker": {
+              "default": "broadinstitute/gatk:latest",
+              "title": "GATK Docker image",
+              "type": "string"
+          },
+          "intervals": {
+              "description": "Picard or GATK-style interval list. For WGS, this should typically only include the autosomal chromosomes.",
+              "title": "Intervals",
+              "type": "string"
+          },
+          "normal_bams": {
+              "description": "This list must correspond to normal_bais. For example, 'Sample1.bam, Sample2.bam'",
+              "file": "**/preprocessing/recalibrated/**/*.cram",
+              "multiple": true,
+              "pathType": "dataset",
+              "title": "List of BAM files",
+              "type": "string"
+          },
+          "padding": {
+              "description": "Amount of padding (in bp) to add to both sides of targets for WES coverage collection. This must be the same value used for all case samples.",
+              "title": "Padding",
+              "type": "integer"
+          },
+          "pon_entity_id": {
+              "title": "Name of the final PoN file",
+              "type": "string"
+          },
+          "ref_fasta": {
+              "file": "**/genome_fasta/**/genome.fasta",
+              "pathType": "references",
+              "title": "Path to reference fasta file",
+              "type": "string"
+          }
       }
-    },
-    "ui": {}
-  }
+  },
+  "ui": {}
+}

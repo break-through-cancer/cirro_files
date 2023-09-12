@@ -1,15 +1,17 @@
 {
-  "id": "process-gatk-somatic-cnv-panel-4_4_0_0",
-  "parentDatasetIds": ["ingest_unaligned_bam"],
-  "parentProcessIds": ["process-nf-core-sarek-align-3-2"],
-  "name": "Somatic Copy Number Variation Panel (GATK)",
-  "desc": "creates a panel of normals (PoN).",
-  "executor": "CROMWELL",
-  "documentationUrl": "https://gatk.broadinstitute.org/hc/en-us/articles/360035535892-Somatic-copy-number-variant-discovery-CNVs-",
+  "childProcessIds": [],
   "code": {
-    "repository": "GITHUBPUBLIC",
-    "script": "cnv_somatic_panel_workflow.wdl",
-    "uri": "broadinstitute/gatk/scripts/cnv_wdl/somatic",
-    "version": "master"
-  }
+      "repository": "GITHUBPUBLIC",
+      "script": "cnv_somatic_panel_workflow.wdl",
+      "uri": "broadinstitute/gatk/scripts/cnv_wdl/somatic",
+      "version": "master"
+  },
+  "desc": "creates a panel of normals (PoN).",
+  "documentationUrl": "https://gatk.broadinstitute.org/hc/en-us/articles/360035535892-Somatic-copy-number-variant-discovery-CNVs-",
+  "executor": "CROMWELL",
+  "id": "process-gatk-somatic-cnv-panel-4_4_0_0",
+  "name": "Somatic Copy Number Variation Panel (GATK)",
+  "parentProcessIds": [
+      "process-nf-core-sarek-align-3-2"
+  ]
 }
