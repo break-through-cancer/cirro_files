@@ -5,16 +5,22 @@ from cirro.helpers.preprocess_dataset import PreprocessDataset
 from cirro.api.models.s3_path import S3Path
 import logging
 
-def setup_inputs(ds: PreprocessDataset):
-    logging.info(f"normal_bais param is: {ds.params['CNVSomaticPanelWorkflow.normal_bais']}")
-    
-    # turn comma separated string of normal_bais into list
+def setup_inputs(ds: PreprocessDataset):    
+    # turn comma separated string of normal_bams into list
+    ds.params[
+        "CNVSomaticPanelWorkflow.normal_bams"
+    ] = ds.params.get(
+        "CNVSomaticPanelWorkflow.normal_bams",
+        "normal_bams"
+    ).split(',')
+
+    # turn comma separated string of normal_bais into list with .bai suffix
     ds.params[
         "CNVSomaticPanelWorkflow.normal_bais"
     ] = ds.params.get(
         "CNVSomaticPanelWorkflow.normal_bais",
         "normal_bais"
-    ).apply(lambda x: x + ".crai")
+    ).split(',').apply(lambda x: x + ".crai")
 
 def setup_options(ds: PreprocessDataset):
 
