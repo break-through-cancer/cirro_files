@@ -2,8 +2,8 @@
   "childProcessIds": [],
   "code": {
       "repository": "GITHUBPUBLIC",
-      "script": "cnv_somatic_panel_workflow.wdl",
-      "uri": "broadinstitute/gatk/scripts/cnv_wdl/somatic",
+      "script": "scripts/cnv_wdl/somatic/cnv_somatic_panel_workflow.wdl",
+      "uri": "broadinstitute/gatk",
       "version": "master"
   },
   "desc": "creates a panel of normals (PoN).",
