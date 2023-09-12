@@ -17,10 +17,10 @@ def setup_inputs(ds: PreprocessDataset):
     # turn comma separated string of normal_bais into list with .bai suffix
     ds.params[
         "CNVSomaticPanelWorkflow.normal_bais"
-    ] = ds.params.get(
+    ] = map(lambda x: x + ".crai", ds.params.get(
         "CNVSomaticPanelWorkflow.normal_bais",
         "normal_bais"
-    ).split(',').apply(lambda x: x + ".crai")
+    ).split(','))
 
 def setup_options(ds: PreprocessDataset):
 
