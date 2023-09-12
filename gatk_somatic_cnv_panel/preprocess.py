@@ -3,10 +3,11 @@
 import json
 from cirro.helpers.preprocess_dataset import PreprocessDataset
 from cirro.api.models.s3_path import S3Path
-
+import logging
 
 def setup_inputs(ds: PreprocessDataset):
- 
+    logging.info(f"normal_bais param is: {ds.params['CNVSomaticPanelWorkflow.normal_bais']}")
+    
     # turn comma separated string of normal_bais into list
     ds.params[
         "CNVSomaticPanelWorkflow.normal_bais"
