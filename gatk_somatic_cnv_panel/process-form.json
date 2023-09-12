@@ -18,10 +18,12 @@
               "type": "string"
           },
           "intervals": {
-              "description": "Picard or GATK-style interval list. For WGS, this should typically only include the autosomal chromosomes.",
-              "title": "Intervals",
-              "type": "string"
-          },
+            "description": "Picard or GATK-style interval list. For WGS, this should typically only include the autosomal chromosomes.",
+            "file": "**/interval_lists/**/targets.interval_list",
+            "pathType": "references",
+            "title": "Intervals",
+            "type": "string"
+        },
           "normal_bams": {
               "description": "This list must correspond to normal_bais. For example, 'Sample1.bam, Sample2.bam'",
               "file": "**/preprocessing/recalibrated/**/*.cram",
