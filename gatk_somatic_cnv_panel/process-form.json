@@ -42,11 +42,23 @@
               "type": "string"
           },
           "ref_fasta": {
-              "file": "**/genome_fasta/**/genome.fasta",
-              "pathType": "references",
-              "title": "Path to reference fasta file",
-              "type": "string"
-          }
+            "file": "**/genome_fasta_gatk/**/genome.fasta",
+            "pathType": "references",
+            "title": "Path to reference fasta file",
+            "type": "string"
+        },
+        "ref_fasta_dict": {
+            "file": "**/genome_fasta_gatk/**/genome.fasta.dict",
+            "pathType": "references",
+            "title": "Path to reference fasta dict file",
+            "type": "string"
+        },
+        "ref_fasta_fai": {
+            "file": "**/genome_fasta_gatk/**/genome.fasta.fai",
+            "pathType": "references",
+            "title": "Path to reference fasta fai file",
+            "type": "string"
+        }
       }
   },
   "ui": {}

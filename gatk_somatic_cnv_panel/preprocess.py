@@ -22,6 +22,25 @@ def setup_inputs(ds: PreprocessDataset):
         "normal_bais"
     ).split(',')]
 
+    all_inputs = {
+                kw: val
+                for kw, val in ds.params.items()
+                if kw.startswith("CNVSomaticPanelWorkflow")
+            }
+
+    # Write out the complete set of inputs
+    write_json("inputs.json", all_inputs)
+
+    # Write out each individual file pair
+    write_json(f"inputs.0.json", all_inputs)
+
+
+def write_json(fp, obj, indent=4) -> None:
+
+    with open(fp, "wt") as handle:
+        json.dump(obj, handle, indent=indent)
+
+
 def setup_options(ds: PreprocessDataset):
 
     # Add default params
@@ -38,7 +57,7 @@ def setup_options(ds: PreprocessDataset):
     options = {
         kw: val
         for kw, val in ds.params.items()
-        if not kw.startswith("ConvertPairedFastQsToUnmappedBamWf")
+        if not kw.startswith("CNVSomaticPanelWorkflow")
     }
 
     # Write out
