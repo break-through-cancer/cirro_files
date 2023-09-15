@@ -48,7 +48,7 @@
             "type": "string"
         },
         "ref_fasta_dict": {
-            "file": "**/genome_fasta_gatk/**/genome.fasta.dict",
+            "file": "**/genome_fasta_gatk/**/genome.dict",
             "pathType": "references",
             "title": "Path to reference fasta dict file",
             "type": "string"
