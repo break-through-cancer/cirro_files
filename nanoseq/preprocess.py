@@ -8,16 +8,15 @@ import logging
 def setup_inputs(ds: PreprocessDataset):    
     # flip the call_variants flag because it is the reverse of the skip_vc flag
     ds.params[
-        "nanoseq.call_variants"
+        "call_variants"
     ] = not ds.params.get(
-        "nanoseq.call_variants",
+        "call_variants",
         "call_variants"
     )
 
     all_inputs = {
                 kw: val
                 for kw, val in ds.params.items()
-                if kw.startswith("nanoseq")
             }
 
     # Write out the complete set of inputs
@@ -49,7 +48,6 @@ def setup_options(ds: PreprocessDataset):
     options = {
         kw: val
         for kw, val in ds.params.items()
-        if not kw.startswith("nanoseq")
     }
 
     # Write out
