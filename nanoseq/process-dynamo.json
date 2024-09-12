@@ -1,0 +1,18 @@
+{
+  "childProcessIds": [],
+  "code": {
+      "repository": "GITHUBPUBLIC",
+      "script": "main.nf",
+      "uri": "nf-core/nanoseq/tree/3.1.0",
+      "version": "master"
+  },
+  "desc": "a bioinformatics analysis pipeline for Nanopore DNA/RNA sequencing data that can be used to perform basecalling, demultiplexing, QC, alignment, and downstream analysis.",
+  "documentationUrl": "https://nf-co.re/nanoseq/3.1.0/",
+  "executor": "CROMWELL",
+  "id": "process-nf-core-nanoseq-3-1-0",
+  "name": "nanoseq",
+  "parentProcessIds": [
+      "long_read_fastq",
+      "custom_dataset"
+  ]
+}
