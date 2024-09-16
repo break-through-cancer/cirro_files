@@ -14,6 +14,9 @@ def setup_inputs(ds: PreprocessDataset):
         "call_variants"
     )
 
+    #parse out response from protocol enum
+    ds.params["protocol"] = ds.params.get("protocol", "protocol")["data"]
+
     all_inputs = {
                 kw: val
                 for kw, val in ds.params.items()
