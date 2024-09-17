@@ -62,4 +62,4 @@ if __name__ == "__main__":
     ds = PreprocessDataset.from_running()
     setup_inputs(ds)
     setup_options(ds)
-    ds.samplesheet.to_csv("samplesheet.csv", index=False)
+    ds[['group','replicate','barcode','input_file','fasta','gtf']].samplesheet.to_csv("samplesheet.csv", index=False)
