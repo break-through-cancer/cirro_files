@@ -1,0 +1,57 @@
+{
+  "form": {
+    "properties": {
+      "bam": {
+        "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
+        "title": "bam",
+        "type": "string"
+      },
+      "bed": {
+        "description": "An optional BED file enumerating regions to process for variant calling.",
+        "title": "bed",
+        "type": "string"
+      },
+      "mod": {
+        "default": false,
+        "description": "Enable modified calls to a bedMethyl file with modkit.",
+        "title": "mod",
+        "type": "boolean",
+        "value": false
+      },
+      "phased": {
+        "default": false,
+        "description": "Enable phasing of sv, snp, and/or mod workflows",
+        "title": "Perform phasing",
+        "type": "boolean",
+        "value": false
+      },
+      "ref": {
+        "default": "/path/to/reference.fasta",
+        "description": "Path to the reference genome file.",
+        "title": "Reference Genome",
+        "type": "string"
+      },
+      "sample_name": {
+        "default": "SAMPLE",
+        "description": "Identifier for the sample.",
+        "title": "sample_name",
+        "type": "string"
+      },
+      "snp": {
+        "default": false,
+        "description": "Run small variant calling using Clair3.",
+        "title": "snp",
+        "type": "boolean",
+        "value": false
+      },
+      "sv": {
+        "default": false,
+        "description": "Run structural variant calling using Sniffles2.",
+        "title": "sv",
+        "type": "boolean",
+        "value": false
+      }
+    }
+  },
+  "ui": {}
+}

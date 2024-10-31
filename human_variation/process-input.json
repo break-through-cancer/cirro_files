@@ -1,0 +1,10 @@
+{
+  "bam": "$.params.dataset.paramJson.bam",
+  "bed": "$.params.dataset.paramJson.bed",
+  "mod": "$.params.dataset.paramJson.mod",
+  "phased": "$.params.dataset.paramJson.phased",
+  "ref": "$.params.dataset.paramJson.ref",
+  "sample_name": "$.params.dataset.paramJson.sample_name",
+  "snp": "$.params.dataset.paramJson.snp",
+  "sv": "$.params.dataset.paramJson.sv"
+}
