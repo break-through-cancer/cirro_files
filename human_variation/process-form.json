@@ -4,12 +4,16 @@
       "bam": {
         "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
         "title": "bam",
-        "type": "string"
+        "type": "string",
+        "file": "**/*.bam",
+        "pathType": "dataset"
       },
       "bed": {
         "description": "An optional BED file enumerating regions to process for variant calling.",
         "title": "bed",
-        "type": "string"
+        "type": "string",
+        "file": "**/*.bed",
+        "pathType": "dataset"
       },
       "mod": {
         "default": false,
@@ -26,10 +30,11 @@
         "value": false
       },
       "ref": {
-        "default": "/path/to/reference.fasta",
         "description": "Path to the reference genome file.",
         "title": "Reference Genome",
-        "type": "string"
+        "type": "string",
+        "file": "**/*.fasta",
+        "pathType": "dataset"
       },
       "sample_name": {
         "default": "SAMPLE",
