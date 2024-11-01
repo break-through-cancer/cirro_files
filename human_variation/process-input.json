@@ -6,5 +6,6 @@
   "ref": "$.params.dataset.paramJson.ref",
   "sample_name": "$.params.dataset.paramJson.sample_name",
   "snp": "$.params.dataset.paramJson.snp",
-  "sv": "$.params.dataset.paramJson.sv"
+  "sv": "$.params.dataset.paramJson.sv",
+  "out_dir": "$.dataset.dataPath"
 }
