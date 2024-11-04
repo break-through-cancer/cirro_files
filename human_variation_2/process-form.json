@@ -5,7 +5,7 @@
         "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
         "title": "bam",
         "type": "string",
-        "file": "**/*.bam",
+        "file": "",
         "pathType": "dataset"
       },
       "bed": {
