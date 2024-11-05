@@ -22,7 +22,7 @@
           "cnv": {
             "type": "boolean",
             "title": "cnv",
-            "description": "Run copy number variant calling using Spectre (default) or QDNAseq.\n",
+            "description": "Run copy number variant calling using Spectre (default) or QDNAseq.",
             "default": false
           },
           "str": {
@@ -36,6 +36,110 @@
             "title": "mod",
             "description": "Enable modified calls to a bedMethyl file with modkit.",
             "default": false
+          }
+        },
+        "dependencies": {
+          "cnv": {
+            "oneOf": [
+              {
+                "properties": {
+                  "cnv": {
+                    "const": true
+                  },
+                  "use_qdnaseq": {
+                    "type": "boolean",
+                    "title": "Use QDNAseq for CNV",
+                    "description": "Enable CNV calling using QDNAseq instead of Spectre.",
+                    "default": false
+                  }
+                },
+                "dependencies": {
+                  "use_qdnaseq": {
+                    "oneOf": [
+                      {
+                        "properties": {
+                          "use_qdnaseq": {
+                            "const": true
+                          },
+                          "qdnaseq_bin_size": {
+                            "type": "integer",
+                            "title": "QDNAseq Bin Size (kbp)",
+                            "default": 500
+                          }
+                        }
+                      },
+                      {
+                        "properties": {
+                          "use_qdnaseq": {
+                            "const": false
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "cnv": {
+                    "const": false
+                  }
+                }
+              }
+            ]
+          },
+          "str": {
+            "oneOf": [
+              {
+                "properties": {
+                  "str": {
+                    "const": true
+                  },
+                  "sex": {
+                    "type": "string",
+                    "title": "Sex to be passed to Straglr-genotype.",
+                    "description": "Determines calls for chrX repeats. If not specified, workflow will infer XX/XY based on allosome coverage.",
+                    "enum": [
+                      "",
+                      "XX",
+                      "XY"
+                    ],
+                    "default": ""
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "str": {
+                    "const": false
+                  }
+                }
+              }
+            ]
+          },
+          "mod": {
+            "oneOf": [
+              {
+                "properties": {
+                  "mod": {
+                    "const": true
+                  },
+                  "force_strand": {
+                    "type": "boolean",
+                    "title": "Force Strand",
+                    "description": "Require modkit to call strand-aware modifications.",
+                    "default": false
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "mod": {
+                    "const": false
+                  }
+                }
+              }
+            ]
           }
         }
       },
@@ -66,7 +170,7 @@
           "bam_min_coverage": {
             "type": "integer",
             "title": "bam_min_coverage",
-            "description": "Minimum read coverage required to run analysis.",
+            "description": "Minimum read coverage required to run analysis. Setting to 0 will skip checking read coverage.",
             "default": 20
           },
           "bed": {
@@ -106,48 +210,12 @@
             "description": "Enabling this option will visualize the alignments and VCF files in the EPI2ME desktop app IGV visualizer.",
             "default": false
           }
-        }
-      },
-      "copy_number_variant_calling_options": {
-        "type": "object",
-        "title": "Copy Number Variant Calling Options",
-        "properties": {
-          "use_qdnaseq": {
-            "type": "boolean",
-            "title": "use_qdnaseq",
-            "description": "Enable to use QDNASeq for CNV calling instead of Spectre. QDNAseq is better suited to shorter reads such as those generated from adaptive sampling experiments.",
-            "default": false
-          },
-          "qdnaseq_bin_size": {
-            "type": "integer",
-            "title": "Bin size for QDNAseq in kbp.",
-            "description": "Pre-computed bin annotations are available for a range of bin sizes. Larger sizes reduce noise, however this may result in reduced sensitivity.",
-            "default": 500
-          }
-        }
-      },
-      "modified_base_calling_options": {
-        "type": "object",
-        "title": "Modified Base Calling Options",
-        "properties": {
-          "force_strand": {
-            "type": "boolean",
-            "title": "Require modkit to call strand-aware modifications.",
-            "description": "By default strand calls are collapsed (strand reported as '.'). Enabling this will force stranding to be considered when calling modifications, creating one output per modification per strand and the report will be tabulated by both modification and strand.",
-            "default": false
-          }
-        }
-      },
-      "short_tandem_repeat_expansion_genotyping_options": {
-        "type": "object",
-        "title": "Short Tandem Repeat Expansion Genotyping Options",
-        "properties": {
-          "sex": {
-            "type": "string",
-            "title": "Sex (XX or XY) to be passed to Straglr-genotype.",
-            "description": "The sex determines how many calls will be obtained for all repeats on chrX. If not specified, the workflow will naively attempt to infer whether the sample carries XX or XY based on relative coverage of the allosomes."
-          }
-        }
+        },
+        "required": [
+          "sample_name",
+          "bam",
+          "ref"
+        ]
       },
       "advanced_options": {
         "type": "object",
@@ -156,7 +224,7 @@
           "depth_intervals": {
             "type": "boolean",
             "title": "Output a bedGraph file with entries for each genomic interval featuring homogeneous depth.",
-            "description": "The output [bedGraph](https://genome.ucsc.edu/goldenPath/help/bedgraph.html) file will have an entry for each genomic interval in which all positions have the same alignment depth. By default this workflow outputs summary depth information from your aligned reads. Per-base depth outputs are slower to generate but may be required for some downstream applications.",
+            "description": "The output bedGraph file will have an entry for each genomic interval in which all positions have the same alignment depth. By default this workflow outputs summary depth information from your aligned reads. Per-base depth outputs are slower to generate but may be required for some downstream applications.",
             "default": false
           },
           "GVCF": {
@@ -181,6 +249,10 @@
             "type": "string",
             "title": "Desired file format of alignment files created by alignment and phasing.",
             "description": "This setting controls the file format of (1) alignment files created by aligning or re-aligning an input BAM and (2) alignment files with haplotag information created during phasing of an input BAM. If using QDNASeq for CNV calling, the setting will be ignored for alignment or realignment as QDNASeq requires BAM input.",
+            "enum": [
+              "cram",
+              "bam"
+            ],
             "default": "cram"
           },
           "modkit_args": {
@@ -201,7 +273,9 @@
           "tr_bed": {
             "type": "string",
             "title": "Input BED file containing tandem repeat annotations for the reference genome.",
-            "description": "Providing a tandem repeat BED can improve calling in repetitive regions. The workflow will attempt to select an appropriate hg19 or hg38 TR BED depending on the genome detected, but this can be overridden with a custom TR BED with this parameter."
+            "description": "Providing a tandem repeat BED can improve calling in repetitive regions. The workflow will attempt to select an appropriate hg19 or hg38 TR BED depending on the genome detected, but this can be overridden with a custom TR BED with this parameter.",
+            "pathType": "dataset",
+            "file": "**/*.bed"
           }
         }
       },
@@ -213,35 +287,44 @@
             "type": "integer",
             "title": "",
             "description": "Set max number of threads to use for more intense processes (limited by config executor cpus)",
-            "default": 4
+            "default": 4,
+            "minimum": 1,
+            "maximum": 16
           },
           "ubam_map_threads": {
             "type": "integer",
             "title": "",
             "description": "Set max number of threads to use for aligning reads from uBAM (limited by config executor cpus)",
-            "default": 8
+            "default": 8,
+            "minimum": 1,
+            "maximum": 16
           },
           "ubam_sort_threads": {
             "type": "integer",
             "title": "",
             "description": "Set max number of threads to use for sorting and indexing aligned reads from uBAM (limited by config executor cpus)",
-            "default": 3
+            "default": 3,
+            "minimum": 1,
+            "maximum": 16
           },
           "ubam_bam2fq_threads": {
             "type": "integer",
             "title": "",
             "description": "Set max number of threads to use for uncompressing uBAM and generating FASTQ for alignment (limited by config executor cpus)",
-            "default": 1
+            "default": 1,
+            "minimum": 1,
+            "maximum": 16
           },
           "modkit_threads": {
             "type": "integer",
             "title": "",
             "description": "Total number of threads to use in modkit modified base calling (limited by config executor cpus)",
-            "default": 4
+            "default": 4,
+            "minimum": 1,
+            "maximum": 16
           }
         }
       }
     }
-  },
-  "ui": {}
+  }
 }
