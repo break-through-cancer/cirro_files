@@ -7,5 +7,6 @@
   "sample_name": "$.params.dataset.paramJson.sample_name",
   "snp": "$.params.dataset.paramJson.snp",
   "sv": "$.params.dataset.paramJson.sv",
+  "override_basecaller_cfg": "$.params.dataset.paramJson.override_basecaller_cfg",
   "out_dir": "$.dataset.dataPath"
 }
