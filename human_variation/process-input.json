@@ -21,8 +21,6 @@
   "sex": "$.params.dataset.paramJson.short_tandem_repeat_expansion_genotyping_options.sex",
   "depth_intervals": "$.params.dataset.paramJson.advanced_options.depth_intervals",
   "GVCF": "$.params.dataset.paramJson.advanced_options.GVCF",
-  "downsample_coverage": "$.params.dataset.paramJson.advanced_options.downsample_coverage",
-  "downsample_coverage_target": "$.params.dataset.paramJson.advanced_options.downsample_coverage_target",
   "output_xam_fmt": "$.params.dataset.paramJson.advanced_options.output_xam_fmt",
   "modkit_args": "$.params.dataset.paramJson.advanced_options.modkit_args",
   "sniffles_args": "$.params.dataset.paramJson.advanced_options.sniffles_args",
