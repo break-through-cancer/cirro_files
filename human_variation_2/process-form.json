@@ -64,6 +64,17 @@
                           "qdnaseq_bin_size": {
                             "type": "integer",
                             "title": "QDNAseq Bin Size (kbp)",
+                            "enum": [
+                              1,
+                              5,
+                              10,
+                              15,
+                              30,
+                              50,
+                              100,
+                              500,
+                              1000
+                            ],
                             "default": 500
                           }
                         }
