@@ -1,66 +1,246 @@
 {
   "form": {
+    "title": "Human Variation Workflow",
+    "type": "object",
     "properties": {
-      "bam": {
-        "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
-        "title": "bam",
-        "type": "string",
-        "file": "**/*.bam",
-        "pathType": "dataset"
+      "workflow_options": {
+        "type": "object",
+        "title": "Workflow Options",
+        "properties": {
+          "sv": {
+            "type": "boolean",
+            "title": "sv",
+            "description": "Run structural variant calling using Sniffles2.",
+            "default": false
+          },
+          "snp": {
+            "type": "boolean",
+            "title": "snp",
+            "description": "Run small variant calling using Clair3.",
+            "default": false
+          },
+          "cnv": {
+            "type": "boolean",
+            "title": "cnv",
+            "description": "Run copy number variant calling using Spectre (default) or QDNAseq.\n",
+            "default": false
+          },
+          "str": {
+            "type": "boolean",
+            "title": "str",
+            "description": "Run genotyping of STR expansions using Straglr (hg38 genome only).",
+            "default": false
+          },
+          "mod": {
+            "type": "boolean",
+            "title": "mod",
+            "description": "Enable modified calls to a bedMethyl file with modkit.",
+            "default": false
+          }
+        }
       },
-      "bed": {
-        "description": "An optional BED file enumerating regions to process for variant calling.",
-        "title": "bed",
-        "type": "string",
-        "file": "**/*.bed",
-        "pathType": "dataset"
+      "main_options": {
+        "type": "object",
+        "title": "Main Options",
+        "properties": {
+          "sample_name": {
+            "type": "string",
+            "title": "sample_name",
+            "description": "Identifier for the sample.",
+            "default": "SAMPLE"
+          },
+          "bam": {
+            "type": "string",
+            "title": "bam",
+            "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
+            "pathType": "dataset",
+            "file": "**/*.bam"
+          },
+          "ref": {
+            "type": "string",
+            "title": "Reference Genome",
+            "description": "Path to the reference genome file.",
+            "pathType": "references",
+            "file": "**/genome_fasta/**/genome.fasta"
+          },
+          "bam_min_coverage": {
+            "type": "integer",
+            "title": "bam_min_coverage",
+            "description": "Minimum read coverage required to run analysis.",
+            "default": 20
+          },
+          "bed": {
+            "type": "string",
+            "title": "bed",
+            "description": "An optional BED file enumerating regions to process for variant calling.",
+            "pathType": "dataset",
+            "file": "**/*.bed"
+          },
+          "annotation": {
+            "type": "boolean",
+            "title": "SnpEff annotation",
+            "description": "If this option is unselected, VCFs will not be annotated with SnpEff.",
+            "default": true
+          },
+          "phased": {
+            "type": "boolean",
+            "title": "Perform phasing",
+            "description": "Enable phasing of sv, snp, and/or mod workflows",
+            "default": false
+          },
+          "include_all_ctgs": {
+            "type": "boolean",
+            "title": "include_all_ctgs",
+            "description": "Call for variants on all sequence in reference. Typically not required.",
+            "default": false
+          },
+          "output_gene_summary": {
+            "type": "boolean",
+            "title": "If set to true, the workflow will generate gene-level coverage summaries.",
+            "description": "If set to true, a 4-column BED file must be supplied, where column 4 is the gene label. The workflow will generate a list of all genes in the BED and their percentage coverage at a range of thresholds (1x, 10x, 15x, 20x, and 30x), as well as the average coverage of each gene.",
+            "default": false
+          },
+          "igv": {
+            "type": "boolean",
+            "title": "Visualize outputs in the EPI2ME IGV visualizer.",
+            "description": "Enabling this option will visualize the alignments and VCF files in the EPI2ME desktop app IGV visualizer.",
+            "default": false
+          }
+        }
       },
-      "mod": {
-        "default": false,
-        "description": "Enable modified calls to a bedMethyl file with modkit.",
-        "title": "mod",
-        "type": "boolean",
-        "value": false
+      "copy_number_variant_calling_options": {
+        "type": "object",
+        "title": "Copy Number Variant Calling Options",
+        "properties": {
+          "use_qdnaseq": {
+            "type": "boolean",
+            "title": "use_qdnaseq",
+            "description": "Enable to use QDNASeq for CNV calling instead of Spectre. QDNAseq is better suited to shorter reads such as those generated from adaptive sampling experiments.",
+            "default": false
+          },
+          "qdnaseq_bin_size": {
+            "type": "integer",
+            "title": "Bin size for QDNAseq in kbp.",
+            "description": "Pre-computed bin annotations are available for a range of bin sizes. Larger sizes reduce noise, however this may result in reduced sensitivity.",
+            "default": 500
+          }
+        }
       },
-      "phased": {
-        "default": false,
-        "description": "Enable phasing of sv, snp, and/or mod workflows",
-        "title": "Perform phasing",
-        "type": "boolean",
-        "value": false
+      "modified_base_calling_options": {
+        "type": "object",
+        "title": "Modified Base Calling Options",
+        "properties": {
+          "force_strand": {
+            "type": "boolean",
+            "title": "Require modkit to call strand-aware modifications.",
+            "description": "By default strand calls are collapsed (strand reported as '.'). Enabling this will force stranding to be considered when calling modifications, creating one output per modification per strand and the report will be tabulated by both modification and strand.",
+            "default": false
+          }
+        }
       },
-      "ref": {
-        "description": "Path to the reference genome file.",
-        "title": "Reference Genome",
-        "type": "string",
-        "file": "**/genome_fasta/**/genome.fasta",
-        "pathType": "references"
+      "short_tandem_repeat_expansion_genotyping_options": {
+        "type": "object",
+        "title": "Short Tandem Repeat Expansion Genotyping Options",
+        "properties": {
+          "sex": {
+            "type": "string",
+            "title": "Sex (XX or XY) to be passed to Straglr-genotype.",
+            "description": "The sex determines how many calls will be obtained for all repeats on chrX. If not specified, the workflow will naively attempt to infer whether the sample carries XX or XY based on relative coverage of the allosomes."
+          }
+        }
       },
-      "sample_name": {
-        "default": "SAMPLE",
-        "description": "Identifier for the sample.",
-        "title": "sample_name",
-        "type": "string"
-      },
-      "snp": {
-        "default": false,
-        "description": "Run small variant calling using Clair3.",
-        "title": "snp",
-        "type": "boolean",
-        "value": false
-      },
-      "sv": {
-        "default": false,
-        "description": "Run structural variant calling using Sniffles2.",
-        "title": "sv",
-        "type": "boolean",
-        "value": false
-      },
-      "override_basecaller_cfg": {
+      "advanced_options": {
+        "type": "object",
+        "title": "Advanced Options",
+        "properties": {
+          "depth_intervals": {
+            "type": "boolean",
+            "title": "Output a bedGraph file with entries for each genomic interval featuring homogeneous depth.",
+            "description": "The output [bedGraph](https://genome.ucsc.edu/goldenPath/help/bedgraph.html) file will have an entry for each genomic interval in which all positions have the same alignment depth. By default this workflow outputs summary depth information from your aligned reads. Per-base depth outputs are slower to generate but may be required for some downstream applications.",
+            "default": false
+          },
+          "GVCF": {
+            "type": "boolean",
+            "title": "Enable to output a gVCF file in addition to the VCF outputs (experimental).",
+            "description": "By default the the workflow outputs a VCF file containing only records where a variant has been detected. Enabling this option will output additionally a gVCF with records spanning all reference positions regardless of whether a variant was detected in the sample.",
+            "default": false
+          },
+          "downsample_coverage": {
+            "type": "boolean",
+            "title": "Downsample the coverage to along the genome.",
+            "description": "This options will trigger a downsampling of the read alignments to the target coverage specified by --downsample_coverage_target. Downsampling will make the workflow run faster but could lead to non-deterministic variant calls.",
+            "default": false
+          },
+          "downsample_coverage_target": {
+            "type": "integer",
+            "title": "Average coverage or reads to use for the analyses.",
+            "description": "This options will set the target coverage for the downsampling stage, if downsampling has been enabled.",
+            "default": 60
+          },
+          "output_xam_fmt": {
+            "type": "string",
+            "title": "Desired file format of alignment files created by alignment and phasing.",
+            "description": "This setting controls the file format of (1) alignment files created by aligning or re-aligning an input BAM and (2) alignment files with haplotag information created during phasing of an input BAM. If using QDNASeq for CNV calling, the setting will be ignored for alignment or realignment as QDNASeq requires BAM input.",
+            "default": "cram"
+          },
+          "modkit_args": {
+            "type": "string",
+            "title": "Additional options for modkit.",
+            "description": "This is an advanced option to allow running modkit with custom settings. The arguments specified in this option will fully override all options set by the workflow. To provide custom arguments to [modkit pileup](https://nanoporetech.github.io/modkit/advanced_usage.html#pileup) from command line proceed as follows: `--modkit_args=\"--preset traditional\"`"
+          },
+          "sniffles_args": {
+            "type": "string",
+            "title": "Additional command line arguments to pass to the Sniffles2 process",
+            "description": "The additional command line arguments will be passed directly to [Sniffles2](https://github.com/fritzsedlazeck/Sniffles/tree/v2.0.7); ensure to use the right commands for the version and from command line provide them as follows: `--sniffles_args=\"--non-germline\"`."
+          },
+          "override_basecaller_cfg": {
             "type": "string",
             "title": "Name of the model to use for selecting a small variant calling model.",
             "description": "The workflow will attempt to find the basecaller model from the headers of your input data, providing a value for this option will override the model found in the data. If the model cannot be found in the header, it must be provided with this option as the basecaller model is required for small variant calling. The basecaller model is used to automatically select the appropriate small variant calling model. The model list shows all models that are compatible for small variant calling with this workflow. You should select 'custom' to override the basecaller_cfg with clair3_model_path.",
             "default": "dna_r10.4.1_e8.2_400bps_hac@v5.0.0"
+          },
+          "tr_bed": {
+            "type": "string",
+            "title": "Input BED file containing tandem repeat annotations for the reference genome.",
+            "description": "Providing a tandem repeat BED can improve calling in repetitive regions. The workflow will attempt to select an appropriate hg19 or hg38 TR BED depending on the genome detected, but this can be overridden with a custom TR BED with this parameter."
+          }
+        }
+      },
+      "multiprocessing_options": {
+        "type": "object",
+        "title": "Multiprocessing Options",
+        "properties": {
+          "threads": {
+            "type": "integer",
+            "title": "",
+            "description": "Set max number of threads to use for more intense processes (limited by config executor cpus)",
+            "default": 4
+          },
+          "ubam_map_threads": {
+            "type": "integer",
+            "title": "",
+            "description": "Set max number of threads to use for aligning reads from uBAM (limited by config executor cpus)",
+            "default": 8
+          },
+          "ubam_sort_threads": {
+            "type": "integer",
+            "title": "",
+            "description": "Set max number of threads to use for sorting and indexing aligned reads from uBAM (limited by config executor cpus)",
+            "default": 3
+          },
+          "ubam_bam2fq_threads": {
+            "type": "integer",
+            "title": "",
+            "description": "Set max number of threads to use for uncompressing uBAM and generating FASTQ for alignment (limited by config executor cpus)",
+            "default": 1
+          },
+          "modkit_threads": {
+            "type": "integer",
+            "title": "",
+            "description": "Total number of threads to use in modkit modified base calling (limited by config executor cpus)",
+            "default": 4
+          }
+        }
       }
     }
   },
