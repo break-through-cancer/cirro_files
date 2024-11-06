@@ -54,7 +54,8 @@
             "title": "bam",
             "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
             "pathType": "dataset",
-            "file": "**/*.bam"
+            "file": "**/*.bam",
+            "multiple": true
           },
           "ref": {
             "type": "string",
