@@ -1,5 +1,6 @@
 {
   "out_dir": "$.dataset.dataPath",
+  "bam": "$.params.inputs[0].s3|/data/bam_pass/",
   "sv": "$.params.dataset.paramJson.workflow_options.sv",
   "snp": "$.params.dataset.paramJson.workflow_options.snp",
   "cnv": "$.params.dataset.paramJson.workflow_options.cnv",
@@ -10,7 +11,6 @@
   "mod": "$.params.dataset.paramJson.workflow_options.mod",
   "force_strand": "$.params.dataset.paramJson.workflow_options.force_strand",
   "sample_name": "$.params.dataset.paramJson.main_options.sample_name",
-  "bam": "$.params.dataset.paramJson.main_options.bam",
   "ref": "$.params.dataset.paramJson.main_options.ref",
   "bam_min_coverage": "$.params.dataset.paramJson.main_options.bam_min_coverage",
   "bed": "$.params.dataset.paramJson.main_options.bed",
