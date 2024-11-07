@@ -169,7 +169,7 @@
             "title": "bam",
             "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
             "pathType": "dataset",
-            "folder": "**/bam_pass/*.bam"
+            "folder": "bam_pass/*.bam"
           },
           "ref": {
             "type": "string",
