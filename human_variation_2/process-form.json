@@ -211,7 +211,6 @@
         },
         "required": [
           "sample_name",
-          "bam",
           "ref"
         ]
       },
