@@ -14,7 +14,6 @@
   "phased": "$.params.dataset.paramJson.main_options.phased",
   "include_all_ctgs": "$.params.dataset.paramJson.main_options.include_all_ctgs",
   "output_gene_summary": "$.params.dataset.paramJson.main_options.output_gene_summary",
-  "igv": "$.params.dataset.paramJson.main_options.igv",
   "use_qdnaseq": "$.params.dataset.paramJson.copy_number_variant_calling_options.use_qdnaseq",
   "qdnaseq_bin_size": "$.params.dataset.paramJson.copy_number_variant_calling_options.qdnaseq_bin_size",
   "force_strand": "$.params.dataset.paramJson.modified_base_calling_options.force_strand",
