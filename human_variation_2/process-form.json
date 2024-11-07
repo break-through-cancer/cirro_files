@@ -214,12 +214,6 @@
             "title": "If set to true, the workflow will generate gene-level coverage summaries.",
             "description": "If set to true, a 4-column BED file must be supplied, where column 4 is the gene label. The workflow will generate a list of all genes in the BED and their percentage coverage at a range of thresholds (1x, 10x, 15x, 20x, and 30x), as well as the average coverage of each gene.",
             "default": false
-          },
-          "igv": {
-            "type": "boolean",
-            "title": "Visualize outputs in the EPI2ME IGV visualizer.",
-            "description": "Enabling this option will visualize the alignments and VCF files in the EPI2ME desktop app IGV visualizer.",
-            "default": false
           }
         },
         "required": [
@@ -243,18 +237,6 @@
             "title": "Enable to output a gVCF file in addition to the VCF outputs (experimental).",
             "description": "By default the the workflow outputs a VCF file containing only records where a variant has been detected. Enabling this option will output additionally a gVCF with records spanning all reference positions regardless of whether a variant was detected in the sample.",
             "default": false
-          },
-          "downsample_coverage": {
-            "type": "boolean",
-            "title": "Downsample the coverage to along the genome.",
-            "description": "This options will trigger a downsampling of the read alignments to the target coverage specified by --downsample_coverage_target. Downsampling will make the workflow run faster but could lead to non-deterministic variant calls.",
-            "default": false
-          },
-          "downsample_coverage_target": {
-            "type": "integer",
-            "title": "Average coverage or reads to use for the analyses.",
-            "description": "This options will set the target coverage for the downsampling stage, if downsampling has been enabled.",
-            "default": 60
           },
           "output_xam_fmt": {
             "type": "string",
