@@ -158,6 +158,13 @@
         "type": "object",
         "title": "Main Options",
         "properties": {
+          "bam": {
+            "type": "string",
+            "title": "bam",
+            "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
+            "pathType": "dataset",
+            "file": "**/*.bam"
+          },
           "sample_name": {
             "type": "string",
             "title": "sample_name",

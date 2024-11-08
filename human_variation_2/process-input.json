@@ -1,6 +1,6 @@
 {
   "out_dir": "$.dataset.dataPath",
-  "bam": "$.params.inputs[0].s3|/data/bam_pass/",
+  "bam": "$.params.dataset.paramJson.main_options.bam",
   "sv": "$.params.dataset.paramJson.workflow_options.sv",
   "snp": "$.params.dataset.paramJson.workflow_options.snp",
   "cnv": "$.params.dataset.paramJson.workflow_options.cnv",
