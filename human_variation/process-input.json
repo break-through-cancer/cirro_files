@@ -7,7 +7,7 @@
   "str": "$.params.dataset.paramJson.workflow_options.str",
   "mod": "$.params.dataset.paramJson.workflow_options.mod",
   "sample_name": "$.params.dataset.paramJson.main_options.sample_name",
-  "bam": "$.params.dataset.paramJson.main_options.bam",
+  "bam": "$.params.inputs[0].s3|/data/bam_pass/",
   "ref": "$.params.dataset.paramJson.main_options.ref",
   "bam_min_coverage": "$.params.dataset.paramJson.main_options.bam_min_coverage",
   "bed": "$.params.dataset.paramJson.main_options.bed",
