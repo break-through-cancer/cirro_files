@@ -1,5 +1,4 @@
 {
-  "profile": "singularity",
   "out_dir": "$.dataset.dataPath",
   "sv": "$.params.dataset.paramJson.workflow_options.sv",
   "snp": "$.params.dataset.paramJson.workflow_options.snp",
