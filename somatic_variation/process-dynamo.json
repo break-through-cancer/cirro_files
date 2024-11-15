@@ -1,0 +1,17 @@
+{
+  "childProcessIds": [],
+  "code": {
+    "repository": "GITHUBPUBLIC",
+    "script": "main.nf",
+    "uri": "epi2me-labs/wf-somatic-variation",
+    "version": "master"
+  },
+  "desc": "A Nextflow workflow to identify somatic variation",
+  "documentationUrl": "https://github.com/epi2me-labs/wf-somatic-variation/blob/master/README.md",
+  "executor": "NEXTFLOW",
+  "id": "epi2me-somatic-variation",
+  "name": "Somatic Variation Workflow (epi2me-labs/wf-somatic-variation)",
+  "parentProcessIds": [
+    "nanpore_fast5"
+  ]
+}
