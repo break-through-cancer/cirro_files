@@ -106,6 +106,10 @@
                   "str": {
                     "const": true
                   },
+                  "str_options": {
+                    "title": "Short tandem repeat expansion genotyping options",
+                    "type": "null"
+                  },
                   "sex": {
                     "type": "string",
                     "title": "Sex to be passed to Straglr-genotype.",
