@@ -164,12 +164,15 @@
             "description": "Identifier for the sample.",
             "default": "SAMPLE"
           },
-          "bam": {
+          "input_type": {
             "type": "string",
-            "title": "bam",
-            "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
-            "pathType": "dataset",
-            "file": "**/*.bam"
+            "title": "Input Type",
+            "enum": [
+              "file",
+              "directory"
+            ],
+            "default": "file",
+            "description": "Select whether the input is a file or a directory."
           },
           "ref": {
             "type": "string",
@@ -214,6 +217,44 @@
             "title": "If set to true, the workflow will generate gene-level coverage summaries.",
             "description": "If set to true, a 4-column BED file must be supplied, where column 4 is the gene label. The workflow will generate a list of all genes in the BED and their percentage coverage at a range of thresholds (1x, 10x, 15x, 20x, and 30x), as well as the average coverage of each gene.",
             "default": false
+          }
+        },
+        "dependencies": {
+          "input_type": {
+            "oneOf": [
+              {
+                "properties": {
+                  "input_type": {
+                    "const": "file"
+                  },          
+                  "bam_file": {
+                    "type": "string",
+                    "title": "bam",
+                    "description": "Path to a single BAM file.",
+                    "pathType": "dataset",
+                    "file": "**/*.bam"
+                  }
+                },
+                "required": [
+                  "bam_file"
+                ]
+              },
+              {
+                "properties": {
+                  "input_type": {
+                    "const": "directory"
+                  },
+                  "bam_directory": {
+                    "type": "string",
+                    "title": "bam",
+                    "description": "Specify a subdirectory containing BAM files. Eg. if dataset/bam_folder/*.bam, enter bam_folder"
+                  }
+                },
+                "required": [
+                  "bam_directory"
+                ]
+              }
+            ]
           }
         },
         "required": [

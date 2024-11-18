@@ -1,6 +1,7 @@
 {
   "out_dir": "$.dataset.dataPath",
-  "bam": "$.inputs[0].dataPath|/|$.params.dataset.paramJson.main_options.bam|/",
+  "bam_file": "$.params.dataset.paramJson.main_options.bam_file",
+  "bam_directory": "$.inputs[0].dataPath|/|$.params.dataset.paramJson.main_options.bam_directory|/",
   "sv": "$.params.dataset.paramJson.workflow_options.sv",
   "snp": "$.params.dataset.paramJson.workflow_options.snp",
   "cnv": "$.params.dataset.paramJson.workflow_options.cnv",
