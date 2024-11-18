@@ -108,6 +108,7 @@
                   },
                   "str_options": {
                     "title": "Short tandem repeat expansion genotyping options",
+                    "description": "test",
                     "type": "null"
                   },
                   "sex": {
