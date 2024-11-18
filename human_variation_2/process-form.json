@@ -167,9 +167,7 @@
           "bam": {
             "type": "string",
             "title": "bam",
-            "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
-            "folder": "*.bam",
-            "useS3Path": true
+            "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files."
           },
           "ref": {
             "type": "string",
