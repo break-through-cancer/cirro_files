@@ -167,7 +167,9 @@
           "bam": {
             "type": "string",
             "title": "bam",
-            "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files."
+            "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
+            "pathType": "dataset",
+            "file": "**/*.bam"
           },
           "ref": {
             "type": "string",
