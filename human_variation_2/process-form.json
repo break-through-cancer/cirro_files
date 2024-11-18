@@ -168,7 +168,6 @@
             "type": "string",
             "title": "bam",
             "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
-            "pathType": "dataset",
             "folder": "/*.bam",
             "useS3Path": true
           },
