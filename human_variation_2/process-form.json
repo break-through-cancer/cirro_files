@@ -164,13 +164,6 @@
             "description": "Identifier for the sample.",
             "default": "SAMPLE"
           },
-          "bam": {
-            "type": "string",
-            "title": "bam",
-            "description": "Either (i) path to a single BAM file or (ii) directory containing BAM files.",
-            "pathType": "dataset",
-            "file": "**/*.bam"
-          },
           "input_type": {
             "type": "string",
             "title": "Input Type",
@@ -179,7 +172,19 @@
               "directory"
             ],
             "default": "file",
-            "description": "Select whether the input is a file or a directory."
+            "description": "Select whether the input bam is a file or a directory."
+          },
+          "bam_file": {
+            "type": "string",
+            "title": "bam - file",
+            "description": "Path to a single BAM file.",
+            "pathType": "dataset",
+            "file": "**/*.bam"
+          },
+          "bam_directory": {
+            "type": "string",
+            "title": "bam - directory",
+            "description": "Specify a subdirectory containing BAM files. Eg. if dataset/bam_folder/*.bam, enter bam_folder"
           },
           "ref": {
             "type": "string",
@@ -233,13 +238,6 @@
                 "properties": {
                   "input_type": {
                     "const": "file"
-                  },          
-                  "bam_file": {
-                    "type": "string",
-                    "title": "bam",
-                    "description": "Path to a single BAM file.",
-                    "pathType": "dataset",
-                    "file": "**/*.bam"
                   }
                 },
                 "required": [
@@ -250,11 +248,6 @@
                 "properties": {
                   "input_type": {
                     "const": "directory"
-                  },
-                  "bam_directory": {
-                    "type": "string",
-                    "title": "bam",
-                    "description": "Specify a subdirectory containing BAM files. Eg. if dataset/bam_folder/*.bam, enter bam_folder"
                   }
                 },
                 "required": [
@@ -266,7 +259,8 @@
         },
         "required": [
           "sample_name",
-          "ref"
+          "ref",
+          "input_type"
         ]
       },
       "advanced_options": {
