@@ -405,6 +405,16 @@
       "input_type": {
         "ui:widget": "radio"
       }
+    },
+    "workflow_options":  {
+      "sex": {
+        "ui:widget": "radio"
+      }
+    },
+    "advanced_options": {
+      "output_xam_fmt": {
+        "ui:widget": "radio"
+      }
     }
   }
 }
