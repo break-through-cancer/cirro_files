@@ -467,26 +467,17 @@
   "ui": {
     "input_options": {
       "input_type": {
-        "ui:widget": "radio",
-        "ui:options": {
-          "inline": true
-        }
+        "ui:widget": "radio"
       }
     },
     "workflow_options":  {
       "sex": {
-        "ui:widget": "radio",
-        "ui:options": {
-          "inline": true
-        }
+        "ui:widget": "radio"
       }
     },
     "advanced_options": {
       "output_xam_fmt": {
-        "ui:widget": "radio",
-        "ui:options": {
-          "inline": true
-        }
+        "ui:widget": "radio"
       }
     }
   }

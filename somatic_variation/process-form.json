@@ -465,16 +465,10 @@
   "ui": {
     "input_options": {
       "input_type_tumor": {
-        "ui:widget": "radio",
-        "ui:options": {
-          "inline": true
-        }
+        "ui:widget": "radio"
       },
       "input_type_normal": {
-        "ui:widget": "radio",
-        "ui:options": {
-          "inline": true
-        }
+        "ui:widget": "radio"
       }
     }
   }
