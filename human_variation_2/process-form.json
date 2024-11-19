@@ -222,8 +222,7 @@
                   },
                   "sex": {
                     "type": "string",
-                    "title": "Sex to be passed to Straglr-genotype.",
-                    "description": "Determines calls for chrX repeats. If not specified, workflow will infer XX/XY based on allosome coverage.",
+                    "title": "Sex to be passed to Straglr-genotype for calling chrX repeats. If not specified, workflow will infer XX/XY based on allosome coverage.",
                     "enum": [
                       "",
                       "XX",
@@ -274,7 +273,7 @@
       },
       "workflow_suboptions": {
         "type": "object",
-        "title": "Main Options",
+        "title": "Workflow Suboptions",
         "properties": {
           "bam_min_coverage": {
             "type": "integer",
@@ -285,13 +284,13 @@
           "phased": {
             "type": "boolean",
             "title": "Perform phasing",
-            "description": "Enable phasing of sv, snp, and/or mod workflows",
+            "description": "Enable phasing of sv, snp, and/or mod workflows.",
             "default": false
           },
           "annotation": {
             "type": "boolean",
-            "title": "Enable SnpEff annotation",
-            "description": "Annotate VCFs with SnpEff.",
+            "title": "Annotate VCFs with SnpEff.",
+            "description": "Enable SnpEff annotation",
             "default": true
           },
           "override_basecaller_cfg": {
@@ -336,7 +335,7 @@
           "output_gene_summary": {
             "type": "boolean",
             "title": "Generate gene-level coverage summaries.",
-            "description": "If set to true, a 4-column BED file must be supplied, where column 4 is the gene label. The workflow will generate a list of all genes in the BED and their percentage coverage at a range of thresholds (1x, 10x, 15x, 20x, and 30x), as well as the average coverage of each gene.",
+            "description": "If enabled, a 4-column BED file must be supplied, where column 4 is the gene label. The workflow will generate a list of all genes in the BED and their percentage coverage at a range of thresholds (1x, 10x, 15x, 20x, and 30x), as well as the average coverage of each gene.",
             "default": false
           }
         }
@@ -368,8 +367,8 @@
                   },
                   "include_all_ctgs": {
                     "type": "boolean",
-                    "title": "include_all_ctgs",
-                    "description": "Call for variants on all sequence in reference. Typically not required.",
+                    "title": "Include all contigs",
+                    "description": "Call for variants on all contigs of the input reference sequence. Typically not required, but may be useful for non-standard reference sequence databases.",
                     "default": false
                   },
                   "depth_intervals": {
@@ -423,7 +422,7 @@
         "properties": {
           "threads": {
             "type": "integer",
-            "title": "",
+            "title": "threads",
             "description": "Set max number of threads to use for more intense processes (minimum 1, maximum 32)",
             "default": 4,
             "minimum": 1,
@@ -431,7 +430,7 @@
           },
           "ubam_map_threads": {
             "type": "integer",
-            "title": "",
+            "title": "ubam_map_threads",
             "description": "Set max number of threads to use for aligning reads from uBAM (minimum 1, maximum 32)",
             "default": 8,
             "minimum": 1,
@@ -439,7 +438,7 @@
           },
           "ubam_sort_threads": {
             "type": "integer",
-            "title": "",
+            "title": "ubam_sort_threads",
             "description": "Set max number of threads to use for sorting and indexing aligned reads from uBAM (minimum 1, maximum 32)",
             "default": 3,
             "minimum": 1,
@@ -447,7 +446,7 @@
           },
           "ubam_bam2fq_threads": {
             "type": "integer",
-            "title": "",
+            "title": "ubam_bam2fq_threads",
             "description": "Set max number of threads to use for uncompressing uBAM and generating FASTQ for alignment (minimum 1, maximum 32)",
             "default": 1,
             "minimum": 1,
@@ -455,7 +454,7 @@
           },
           "modkit_threads": {
             "type": "integer",
-            "title": "",
+            "title": "modkit_threads",
             "description": "Total number of threads to use in modkit modified base calling (minimum 1, maximum 32)",
             "default": 4,
             "minimum": 1,
