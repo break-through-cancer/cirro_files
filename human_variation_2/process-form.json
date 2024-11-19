@@ -289,8 +289,8 @@
           },
           "annotation": {
             "type": "boolean",
-            "title": "Annotate VCFs with SnpEff.",
-            "description": "Enable SnpEff annotation",
+            "title": "Annotate VCFs with SnpEff",
+            "description": "Enable SnpEff annotation.",
             "default": true
           },
           "override_basecaller_cfg": {
