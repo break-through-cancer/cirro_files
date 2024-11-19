@@ -254,7 +254,7 @@
                   },
                   "force_strand": {
                     "type": "boolean",
-                    "title": "Force Strand",
+                    "title": "force_strand",
                     "description": "Require modkit to call strand-aware modifications.",
                     "default": false
                   }
