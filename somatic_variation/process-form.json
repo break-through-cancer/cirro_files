@@ -197,27 +197,6 @@
                     "description": "Small variant calling options",
                     "type": "null"
                   },
-                  "hybrid_mode_vcf": {
-                    "type": "string",
-                    "title": "hybrid_mode_vcf",
-                    "description": "Enable hybrid calling mode that combines the *de novo* calling results and genotyping results at the positions in the VCF file given.",
-                    "pathType": "dataset",
-                    "file": "**/*.vcf"
-                  },
-                  "genotyping_mode_vcf": {
-                    "type": "string",
-                    "title": "genotyping_mode_vcf",
-                    "description": "VCF file input containing candidate sites to be genotyped. Variants will only be called at the sites in the VCF file if provided.",
-                    "pathType": "dataset",
-                    "file": "**/*.vcf"
-                  },
-                  "normal_vcf": {
-                    "type": "string",
-                    "title": "normal_vcf",
-                    "description": "VCF file input containing normal sites for the given sample. Pointing to a pre-computed normal VCF file will prevent the workflow from calling the germline sites for the normal sample, reducing processing time.",
-                    "pathType": "dataset",
-                    "file": "**/*.vcf"
-                  },
                   "skip_haplotype_filter": {
                     "type": "boolean",
                     "title": "skip_haplotype_filter",
@@ -300,14 +279,14 @@
                   },
                   "force_strand": {
                     "type": "boolean",
-                    "title": "Require modkit to call strand-aware modifications.",
-                    "description": "",
+                    "title": "force_strand",
+                    "description": "Require modkit to call strand-aware modifications.",
                     "default": false
                   },
                   "diff_mod": {
                     "type": "boolean",
-                    "title": "Detect differentially modified loci and regions with DSS.",
-                    "description": "",
+                    "title": "diff_mod",
+                    "description": "Detect differentially modified loci and regions with DSS.",
                     "default": true
                   }
                 }
@@ -320,6 +299,33 @@
                 }
               }
             ]
+          }
+        }
+      },
+      "sv_input_options": {
+        "type": "object",
+        "title": "Small Variant Calling Input Options",
+        "properties": {
+          "hybrid_mode_vcf": {
+            "type": "string",
+            "title": "hybrid_mode_vcf",
+            "description": "Enable hybrid calling mode that combines the *de novo* calling results and genotyping results at the positions in the VCF file given.",
+            "pathType": "dataset",
+            "file": "**/*.vcf"
+          },
+          "genotyping_mode_vcf": {
+            "type": "string",
+            "title": "genotyping_mode_vcf",
+            "description": "VCF file input containing candidate sites to be genotyped. Variants will only be called at the sites in the VCF file if provided.",
+            "pathType": "dataset",
+            "file": "**/*.vcf"
+          },
+          "normal_vcf": {
+            "type": "string",
+            "title": "normal_vcf",
+            "description": "VCF file input containing normal sites for the given sample. Pointing to a pre-computed normal VCF file will prevent the workflow from calling the germline sites for the normal sample, reducing processing time.",
+            "pathType": "dataset",
+            "file": "**/*.vcf"
           }
         }
       },

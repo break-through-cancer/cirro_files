@@ -15,9 +15,6 @@
   "snv": "$.params.dataset.paramJson.workflow_options.snv",
   "sv": "$.params.dataset.paramJson.workflow_options.sv",
   "mod": "$.params.dataset.paramJson.workflow_options.mod",
-  "hybrid_mode_vcf": "$.params.dataset.paramJson.workflow_options.hybrid_mode_vcf",
-  "genotyping_mode_vcf": "$.params.dataset.paramJson.workflow_options.genotyping_mode_vcf",
-  "normal_vcf": "$.params.dataset.paramJson.workflow_options.normal_vcf",
   "skip_haplotype_filter": "$.params.dataset.paramJson.workflow_options.skip_haplotype_filter",
   "fast_mode": "$.params.dataset.paramJson.workflow_options.fast_mode",
   "germline": "$.params.dataset.paramJson.workflow_options.germline",
@@ -26,6 +23,10 @@
   "min_sv_length": "$.params.dataset.paramJson.workflow_options.min_sv_length",
   "force_strand": "$.params.dataset.paramJson.workflow_options.force_strand",
   "diff_mod": "$.params.dataset.paramJson.workflow_options.diff_mod",
+
+  "hybrid_mode_vcf": "$.params.dataset.paramJson.sv_input_options.hybrid_mode_vcf",
+  "genotyping_mode_vcf": "$.params.dataset.paramJson.sv_input_options.genotyping_mode_vcf",
+  "normal_vcf": "$.params.dataset.paramJson.sv_input_options.normal_vcf",
 
   "tumor_min_coverage": "$.params.dataset.paramJson.workflow_suboptions.tumor_min_coverage",
   "normal_min_coverage": "$.params.dataset.paramJson.workflow_suboptions.normal_min_coverage",
