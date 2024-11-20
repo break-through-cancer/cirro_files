@@ -11,3 +11,4 @@ if __name__ == "__main__":
         ds.remove_param("bam_directory")
         
     ds.remove_param("input_type")
+    ds.add_param("validate_params", True)
