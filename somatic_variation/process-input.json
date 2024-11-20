@@ -1,5 +1,6 @@
 {
   "out_dir": "$.dataset.dataPath",
+  "validate_params": "true",
 
   "sample_name": "$.params.dataset.paramJson.input_options.sample_name",
   "input_type_tumor": "$.params.dataset.paramJson.input_options.input_type_tumor",
