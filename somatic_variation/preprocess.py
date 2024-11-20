@@ -15,3 +15,4 @@ if __name__ == "__main__":
     
     process_input_type(ds, "input_type_tumor", "bam_tumor_file", "bam_tumor_directory", "bam_tumor")
     process_input_type(ds, "input_type_normal", "bam_normal_file", "bam_normal_directory", "bam_normal")
+    ds.add_param("validate_params", True)
