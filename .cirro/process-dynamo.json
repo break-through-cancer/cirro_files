@@ -10,6 +10,6 @@
   "documentationUrl": "",
   "executor": "CROMWELL",
   "id": "iconicc",
-  "name": "ICONICC-paired",
+  "name": "ICONICC Paired",
   "parentProcessIds": []
 }
