@@ -64,14 +64,14 @@
         "title": "Panel of Normals",
         "description": "",
         "pathType": "dataset",
-        "file": "**/*"
+        "file": "**/*.rds"
       },
       "filt_probes": {
         "type": "string",
         "title": "Filtered Probes",
         "description": "",
         "pathType": "dataset",
-        "file": "**/*"
+        "file": "**/*.rds"
       }
     }
   },
