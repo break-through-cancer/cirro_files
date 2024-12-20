@@ -6,18 +6,7 @@ from cirro.helpers.preprocess_dataset import PreprocessDataset
 from cirro.api.models.s3_path import S3Path
 
 
-def main():
-    """Primary entrypoint for the script"""
-
-    # Get information on the analysis launched by the user
-    ds = PreprocessDataset.from_running()
-    # Set up the options.json file
-    setup_options(ds)
-    # Set up the inputs files
-    setup_inputs(ds)
-
-
-def setup_options(ds: PreprocessDataset):
+def setup_options_inputs(ds: PreprocessDataset):
 
     # Set up the scriptBucketName, which is needed by the workflow
     # to stage analysis scripts
@@ -36,8 +25,15 @@ def setup_options(ds: PreprocessDataset):
         if not kw.startswith("HapCNA")
     }
 
+    inputs = {
+        kw: val
+        for kw, val in ds.params.items()
+        if kw.startswith("HapCNA")
+    }
+
     # Write out to the options.json file
     write_json("options.json", options)
+    write_json("inputs.1.json", inputs)
 
 
 def yield_single_inputs(ds: PreprocessDataset) -> dict:
@@ -119,6 +115,17 @@ def write_json(fp, obj, indent=4) -> None:
 
     with open(fp, "wt") as handle:
         json.dump(obj, handle, indent=indent)
+
+
+def main():
+    """Primary entrypoint for the script"""
+
+    # Get information on the analysis launched by the user
+    ds = PreprocessDataset.from_running()
+    # Set up the options.json file
+    setup_options_inputs(ds)
+    # Set up the inputs files
+    # setup_inputs(ds)
 
 
 if __name__ == "__main__":
