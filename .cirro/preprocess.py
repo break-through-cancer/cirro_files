@@ -25,16 +25,22 @@ def setup_options_inputs(ds: PreprocessDataset):
         if not kw.startswith(("HapCNA", "CheckSamplesUnique"))
     }
 
+    inputs_1 = {
+        kw: val
+        for kw, val in ds.params.items()
+        if kw.startswith("HapCNA")
+    }
+
     inputs = {
         kw: val
         for kw, val in ds.params.items()
-        if kw.startswith(("HapCNA", "CheckSamplesUnique"))
+        if kw.startswith("CheckSamplesUnique")
     }
-
 
     # Write out to the options.json file
     write_json("options.json", options)
-    write_json("inputs.1.json", inputs)
+    write_json("inputs.json", inputs)
+    write_json("inputs.1.json", inputs_1)
 
 
 def yield_single_inputs(ds: PreprocessDataset) -> dict:
