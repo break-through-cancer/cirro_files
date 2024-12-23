@@ -58,20 +58,6 @@
           "female"
         ],
         "default": ""
-      },
-      "pon": {
-        "type": "string",
-        "title": "Panel of Normals",
-        "description": "",
-        "pathType": "dataset",
-        "file": "**/*.rds"
-      },
-      "filt_probes": {
-        "type": "string",
-        "title": "Filtered Probes",
-        "description": "",
-        "pathType": "dataset",
-        "file": "**/*.rds"
       }
     }
   },
