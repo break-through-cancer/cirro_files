@@ -22,14 +22,15 @@ def setup_options_inputs(ds: PreprocessDataset):
     options = {
         kw: val
         for kw, val in ds.params.items()
-        if not kw.startswith("HapCNA")
+        if not kw.startswith(("HapCNA", "CheckSamplesUnique"))
     }
 
     inputs = {
         kw: val
         for kw, val in ds.params.items()
-        if kw.startswith("HapCNA")
+        if kw.startswith(("HapCNA", "CheckSamplesUnique"))
     }
+
 
     # Write out to the options.json file
     write_json("options.json", options)
