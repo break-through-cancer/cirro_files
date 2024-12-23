@@ -31,15 +31,15 @@ def setup_options_inputs(ds: PreprocessDataset):
         if kw.startswith("HapCNA")
     }
 
-    inputs = {
-        kw: val
-        for kw, val in ds.params.items()
-        if kw.startswith("CheckSamplesUnique")
-    }
+    # inputs = {
+    #     kw: val
+    #     for kw, val in ds.params.items()
+    #     if kw.startswith("CheckSamplesUnique")
+    # }
 
     # Write out to the options.json file
     write_json("options.json", options)
-    write_json("inputs.json", inputs)
+    # write_json("inputs.json", inputs)
     write_json("inputs.1.json", inputs_1)
 
 
