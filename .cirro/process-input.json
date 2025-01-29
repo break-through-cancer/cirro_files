@@ -1,5 +1,6 @@
 {
+    "input": "$.params.dataset.s3|/samplesheet.csv",
+    "outdir": "$.params.dataset.s3|/data/",
     "genome": "$.params.dataset.paramJson.genome",
-    "output": "$.params.dataset.s3|/data/",
-    "profile": "docker"
+    "circle_identifier": "$.params.dataset.paramJson.circle_identifier"
 }       

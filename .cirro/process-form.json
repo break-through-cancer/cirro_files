@@ -9,5 +9,15 @@
             }
         }
     },
+    "form": {
+        "properties": {
+            "circle_identifier": {
+                "default": "ampliconarchitect",
+                "description": "circle identifier",
+                "title": "circle_identifier",
+                "type": "string"
+            }
+        }
+    },
     "ui": {}
 }
