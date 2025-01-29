@@ -1,5 +1,4 @@
 {
-    "input": "$.params.dataset.s3|/samplesheet.csv",
     "outdir": "$.params.dataset.s3|/data/",
     "genome": "$.params.dataset.paramJson.genome",
     "circle_identifier": "$.params.dataset.paramJson.circle_identifier"

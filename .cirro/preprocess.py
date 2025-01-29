@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
 
-import pandas as pd
+# adapted from https://github.com/break-through-cancer/btc-spatial-pipelines/blob/main/.cirro/preprocess.py
 
 from cirro.helpers.preprocess_dataset import PreprocessDataset
+import pandas as pd
+import numpy as np
 
-def make_manifest(files: pd.DataFrame) -> pd.DataFrame:
+def make_manifest(ds: PreprocessDataset):
     """
-    Create a samplesheet for my workflow
+    1. Create a samplesheet for my workflow
+    2. Add samplesheet as a input parameter
+
     """
-    samplesheet = files[['sample', 'file']].rename(columns={'file': 'bam'}, inplace=False)
-    return samplesheet
+
+    samplesheet = ds.files[['sample', 'file']].rename(columns={'file': 'bam'}, inplace=False)
+    samplesheet.to_csv('samplesheet.csv', index=False)
+
+    ds.add_param("input", "samplesheet.csv")
 
 if __name__ == '__main__':
     ds = PreprocessDataset.from_running()
-    manifest = make_manifest(ds.files)
-    manifest.to_csv('samplesheet.csv', index=False)
+    make_manifest(ds)
+
+    ds.logger.info(ds.params)
+    print(ds.params)
