@@ -12,6 +12,12 @@
                 "description": "circle identifier",
                 "title": "circle_identifier",
                 "type": "string"
+            },
+            "input_format": {
+                "default": "BAM",
+                "description": "input format",
+                "title": "input_format",
+                "type": "string"
             }
         }
     },
