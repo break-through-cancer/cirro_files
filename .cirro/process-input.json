@@ -1,0 +1,5 @@
+{
+    "genome": "$.params.dataset.paramJson.genome",
+    "output": "$.params.dataset.s3|/data/",
+    "profile": "docker"
+}       
