@@ -6,11 +6,7 @@
                 "description": "reference genome",
                 "title": "genome",
                 "type": "string"
-            }
-        }
-    },
-    "form": {
-        "properties": {
+            },
             "circle_identifier": {
                 "default": "ampliconarchitect",
                 "description": "circle identifier",
