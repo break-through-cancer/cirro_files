@@ -90,31 +90,31 @@
             "type": "boolean",
             "title": "sv",
             "description": "Run structural variant calling using Sniffles2.",
-            "default": false
+            "default": true
           },
           "snp": {
             "type": "boolean",
             "title": "snp",
             "description": "Run small variant calling using Clair3.",
-            "default": false
+            "default": true
           },
           "cnv": {
             "type": "boolean",
             "title": "cnv",
             "description": "Run copy number variant calling using Spectre (default) or QDNAseq.",
-            "default": false
+            "default": true
           },
           "str": {
             "type": "boolean",
             "title": "str",
             "description": "Run genotyping of STR expansions using Straglr (hg38 genome only).",
-            "default": false
+            "default": true
           },
           "mod": {
             "type": "boolean",
             "title": "mod",
             "description": "Enable modified calls to a bedMethyl file with modkit.",
-            "default": false
+            "default": true
           }
         },
         "anyOf": [
@@ -256,7 +256,7 @@
                     "type": "boolean",
                     "title": "force_strand",
                     "description": "Require modkit to call strand-aware modifications.",
-                    "default": false
+                    "default": true
                   }
                 }
               },
@@ -285,7 +285,7 @@
             "type": "boolean",
             "title": "Perform phasing",
             "description": "Enable phasing of sv, snp, and/or mod workflows.",
-            "default": false
+            "default": true
           },
           "annotation": {
             "type": "boolean",
@@ -298,7 +298,6 @@
             "title": "override_basecaller_cfg",
             "description": "The workflow will attempt to find the basecaller model from the headers of your input data. Providing a value for this option will override the model found in the data. If the model cannot be found in the header, it must be provided with this option to conduct small variant calling.",
             "enum": [
-              "",
               "dna_r10.4.1_e8.2_400bps_fast@v5.0.0",
               "dna_r10.4.1_e8.2_400bps_hac@v5.0.0",
               "dna_r10.4.1_e8.2_400bps_sup@v5.0.0",
@@ -424,7 +423,7 @@
             "type": "integer",
             "title": "threads",
             "description": "Set max number of threads to use for more intense processes (minimum 1, maximum 32)",
-            "default": 4,
+            "default": 8,
             "minimum": 1,
             "maximum": 32
           },
@@ -432,7 +431,7 @@
             "type": "integer",
             "title": "ubam_map_threads",
             "description": "Set max number of threads to use for aligning reads from uBAM (minimum 1, maximum 32)",
-            "default": 8,
+            "default": 32,
             "minimum": 1,
             "maximum": 32
           },
@@ -440,7 +439,7 @@
             "type": "integer",
             "title": "ubam_sort_threads",
             "description": "Set max number of threads to use for sorting and indexing aligned reads from uBAM (minimum 1, maximum 32)",
-            "default": 3,
+            "default": 32,
             "minimum": 1,
             "maximum": 32
           },
@@ -448,7 +447,7 @@
             "type": "integer",
             "title": "ubam_bam2fq_threads",
             "description": "Set max number of threads to use for uncompressing uBAM and generating FASTQ for alignment (minimum 1, maximum 32)",
-            "default": 1,
+            "default": 32,
             "minimum": 1,
             "maximum": 32
           },
@@ -456,7 +455,7 @@
             "type": "integer",
             "title": "modkit_threads",
             "description": "Total number of threads to use in modkit modified base calling (minimum 1, maximum 32)",
-            "default": 4,
+            "default": 16,
             "minimum": 1,
             "maximum": 32
           }
