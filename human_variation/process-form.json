@@ -390,7 +390,7 @@
                       "cram",
                       "bam"
                     ],
-                    "default": "cram"
+                    "default": "bam"
                   },
                   "modkit_args": {
                     "type": "string",
