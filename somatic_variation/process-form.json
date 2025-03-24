@@ -153,19 +153,19 @@
             "type": "boolean",
             "title": "snv",
             "description": "Run small variant calling using Clair3.",
-            "default": false
+            "default": true
           },
           "sv": {
             "type": "boolean",
             "title": "sv",
             "description": "Run somatic structural variant calling using severus.",
-            "default": false
+            "default": true
           },
           "mod": {
             "type": "boolean",
             "title": "mod",
             "description": "Run modified base aggregation using modkit and differential modification computation using DSS.",
-            "default": false
+            "default": true
           }
         },
         "anyOf": [
@@ -219,7 +219,7 @@
                     "type": "boolean",
                     "title": "phase_normal",
                     "description": "Phase and tag the normal, in addition to the tumor dataset.",
-                    "default": false
+                    "default": true
                   },
                   "liquid_tumor": {
                     "type": "boolean",
@@ -281,7 +281,7 @@
                     "type": "boolean",
                     "title": "force_strand",
                     "description": "Require modkit to call strand-aware modifications.",
-                    "default": false
+                    "default": true
                   },
                   "diff_mod": {
                     "type": "boolean",
@@ -356,7 +356,6 @@
             "title": "override_basecaller_cfg",
             "description": "The workflow will attempt to find the basecaller model from the headers of your input data. Providing a value for this option will override the model found in the data. If the model cannot be found in the header, it must be provided with this option to conduct small variant calling.",
             "enum": [
-              "",
               "dna_r10.4.1_e8.2_400bps_fast@v5.0.0",
               "dna_r10.4.1_e8.2_400bps_hac@v5.0.0",
               "dna_r10.4.1_e8.2_400bps_sup@v5.0.0",
@@ -412,7 +411,7 @@
             "type": "integer",
             "title": "ubam_map_threads",
             "description": "Set max number of threads to use for aligning reads from uBAM (minimum 1, maximum 32).",
-            "default": 8,
+            "default": 32,
             "minimum": 1,
             "maximum": 32
           },
@@ -420,7 +419,7 @@
             "type": "integer",
             "title": "ubam_sort_threads",
             "description": "Set max number of threads to use for sorting and indexing aligned reads from uBAM (minimum 1, maximum 32).",
-            "default": 3,
+            "default": 32,
             "minimum": 1,
             "maximum": 32
           },
@@ -428,7 +427,7 @@
             "type": "integer",
             "title": "ubam_bam2fq_threads",
             "description": "Set max number of threads to use for uncompressing uBAM and generating FASTQ for alignment (minimum 1, maximum 32).",
-            "default": 1,
+            "default": 32,
             "minimum": 1,
             "maximum": 32
           },
@@ -436,7 +435,7 @@
             "type": "integer",
             "title": "severus_threads",
             "description": "Total number of threads to use for Severus (minimum 4, maximum 32).",
-            "default": 8,
+            "default": 16,
             "minimum": 4,
             "maximum": 32
           },
@@ -444,7 +443,7 @@
             "type": "integer",
             "title": "dss_threads",
             "description": "Total number of threads to use in the DSS differential modification analysis (minimum 1, maximum 32).",
-            "default": 1,
+            "default": 16,
             "minimum": 1,
             "maximum": 32
           },
@@ -452,7 +451,7 @@
             "type": "integer",
             "title": "modkit_threads",
             "description": "Total number of threads to use in modkit modified base calling (minimum 1, maximum 32).",
-            "default": 4,
+            "default": 16,
             "minimum": 1,
             "maximum": 32
           },
@@ -460,7 +459,7 @@
             "type": "integer",
             "title": "haplotype_filter_threads",
             "description": "Set max number of threads to use for the haplotype filtering stage in SNV workflow (minimum 1, maximum 32).",
-            "default": 4,
+            "default": 16,
             "minimum": 1,
             "maximum": 32
           }
