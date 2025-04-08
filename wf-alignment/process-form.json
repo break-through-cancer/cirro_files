@@ -34,7 +34,9 @@
             "type": "string",
             "format": "directory-path",
             "description": "Path to a directory containing FASTA reference files.",
-            "help_text": "Accepted file extensions are '.fasta', '.fna', '.ffn', '.faa', '.frn', '.fa', '.txt', '.fa.gz', '.fna.gz', '.frn.gz', '.ffn.gz', '.fasta.gz'. In addition, an MMI index file can be provided to make the workflow run faster using the option `--reference_mmi_file`."
+            "help_text": "Accepted file extensions are '.fasta', '.fna', '.ffn', '.faa', '.frn', '.fa', '.txt', '.fa.gz', '.fna.gz', '.frn.gz', '.ffn.gz', '.fasta.gz'. In addition, an MMI index file can be provided to make the workflow run faster using the option `--reference_mmi_file`.",
+            "pathType": "references",
+            "file": "**/genome_fasta/**/genome.fasta"
           },
           "reference_mmi_file": {
             "type": "string",
