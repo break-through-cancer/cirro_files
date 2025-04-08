@@ -9,7 +9,7 @@
   "desc": "Align Nanopore Long Read Sequencing Data",
   "documentationUrl": "https://github.com/epi2me-labs/wf-alignment/blob/master/README.md",
   "executor": "NEXTFLOW",
-  "id": "nanopore-alignment",
+  "id": "epi2me-labs-wf-alignment",
   "name": "Nanopore Alignment (epi2me-labs/wf-alignment)",
   "parentProcessIds": []
 }
