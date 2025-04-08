@@ -49,24 +49,34 @@
             "help_text": "The expected counts CSV file must contain columns named 'reference' and 'expected_counts' in order to be valid. the 'reference' column should contain names matching the names of reference sequences within the fasta files provided using --references."
           }
         },
-        "allOf": [
+        "required": [
+          "references"
+        ],
+        "dependencies": {
+          "bam": {
+            "not": {
+              "required": [
+                "fastq"
+              ]
+            }
+          },
+          "fastq": {
+            "not": {
+              "required": [
+                "bam"
+              ]
+            }
+          }
+        },
+        "anyOf": [
           {
             "required": [
-              "references"
+              "bam"
             ]
           },
           {
-            "oneOf": [
-              {
-                "required": [
-                  "fastq"
-                ]
-              },
-              {
-                "required": [
-                  "bam"
-                ]
-              }
+            "required": [
+              "fastq"
             ]
           }
         ]
