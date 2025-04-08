@@ -1,0 +1,16 @@
+{
+  "fastq": "$.params.dataset.paramJson.input.fastq",
+  "bam": "$.params.dataset.paramJson.input.bam",
+  "analyse_unclassified": "$.params.dataset.paramJson.input.analyse_unclassified",
+  "references": "$.params.dataset.paramJson.input.references",
+  "reference_mmi_file": "$.params.dataset.paramJson.input.reference_mmi_file",
+  "counts": "$.params.dataset.paramJson.input.counts",
+  "sample_sheet": "$.params.dataset.paramJson.samples.sample_sheet",
+  "sample": "$.params.dataset.paramJson.samples.sample",
+  "prefix": "$.params.dataset.paramJson.output.prefix",
+  "per_read_stats": "$.params.dataset.paramJson.output.per_read_stats",
+  "depth_coverage": "$.params.dataset.paramJson.advanced_options.depth_coverage",
+  "minimap_preset": "$.params.dataset.paramJson.advanced_options.minimap_preset",
+  "minimap_args": "$.params.dataset.paramJson.advanced_options.minimap_args",
+  "threads": "$.params.dataset.paramJson.misc.threads"
+}
