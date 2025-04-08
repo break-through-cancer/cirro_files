@@ -12,5 +12,6 @@
   "depth_coverage": "$.params.dataset.paramJson.advanced_options.depth_coverage",
   "minimap_preset": "$.params.dataset.paramJson.advanced_options.minimap_preset",
   "minimap_args": "$.params.dataset.paramJson.advanced_options.minimap_args",
-  "threads": "$.params.dataset.paramJson.misc.threads"
+  "threads": "$.params.dataset.paramJson.misc.threads",
+  "out_dir": "$.dataset.dataPath"
 }
