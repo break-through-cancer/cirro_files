@@ -302,7 +302,7 @@
           }
         }
       },
-      "sv_input_options": {
+      "snv_input_options": {
         "type": "object",
         "title": "Small Variant Calling Input Options",
         "properties": {

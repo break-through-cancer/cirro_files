@@ -24,9 +24,9 @@
   "force_strand": "$.params.dataset.paramJson.workflow_options.force_strand",
   "diff_mod": "$.params.dataset.paramJson.workflow_options.diff_mod",
 
-  "hybrid_mode_vcf": "$.params.dataset.paramJson.sv_input_options.hybrid_mode_vcf",
-  "genotyping_mode_vcf": "$.params.dataset.paramJson.sv_input_options.genotyping_mode_vcf",
-  "normal_vcf": "$.params.dataset.paramJson.sv_input_options.normal_vcf",
+  "hybrid_mode_vcf": "$.params.dataset.paramJson.snv_input_options.hybrid_mode_vcf",
+  "genotyping_mode_vcf": "$.params.dataset.paramJson.snv_input_options.genotyping_mode_vcf",
+  "normal_vcf": "$.params.dataset.paramJson.snv_input_options.normal_vcf",
 
   "tumor_min_coverage": "$.params.dataset.paramJson.workflow_suboptions.tumor_min_coverage",
   "normal_min_coverage": "$.params.dataset.paramJson.workflow_suboptions.normal_min_coverage",
