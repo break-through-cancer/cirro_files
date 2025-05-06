@@ -23,29 +23,7 @@
             "help_text": "If this option is selected, modified bases will be aggregated with modkit and differential modifications will be computed with DSS.",
             "default": true
           }
-        },
-        "anyOf": [
-          {
-            "properties": {
-              "snv": {
-                "const": true
-              }
-            },
-            "required": [
-              "snv"
-            ]
-          },
-          {
-            "properties": {
-              "mod": {
-                "const": true
-              }
-            },
-            "required": [
-              "mod"
-            ]
-          }
-        ]
+        }
       },
       "input": {
         "title": "Main options",
@@ -63,28 +41,32 @@
           "bam_tumor": {
             "title": "Tumor BAM",
             "type": "string",
-            "format": "path",
+            "pathType": "dataset",
+            "file": "**/*.bam",
             "description": "BAM or unaligned BAM (uBAM) files for the tumor sample to use in the analysis.",
             "help_text": "This accepts one of two cases: (i) the path to a single BAM file; (ii) the path to a top-level directory containing BAM files. A sample name can be supplied with `--sample`."
           },
           "ref": {
             "title": "Reference genome file",
             "type": "string",
-            "format": "file-path",
+            "pathType": "references",
+            "file": "**/genome_fasta/**/genome.fasta",
             "description": "Path to a reference FASTA file.",
             "help_text": "Reference against which to compare reads for variant calling."
           },
           "bed": {
             "title": "Target region BED file",
             "type": "string",
-            "format": "file-path",
+            "pathType": "dataset",
+            "file": "**/*.bed",
             "description": "An optional BED file enumerating regions to process for variant calling.",
             "help_text": ""
           },
           "tr_bed": {
             "title": "Tandem repeat BED file",
             "type": "string",
-            "format": "file-path",
+            "pathType": "dataset",
+            "file": "**/*.bed",
             "description": "An optional BED file enumerating simple repeat regions.",
             "help_text": "This command provides a bed file specifying the location of the simple repetitive elements in the genome of choice. This file should be a standard bed file, as described in the [UCSC specification](https://genome.ucsc.edu/FAQ/FAQformat.html#format1)."
           },
