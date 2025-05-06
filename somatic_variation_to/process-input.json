@@ -1,0 +1,45 @@
+{
+  "out_dir": "$.dataset.dataPath",
+
+  "sample_name": "$.params.dataset.paramJson.input_options.sample_name",
+  "input_type_tumor": "$.params.dataset.paramJson.input_options.input_type_tumor",
+  "bam_tumor_file": "$.params.dataset.paramJson.input_options.bam_tumor_file",
+  "bam_tumor_directory": "$.inputs[0].dataPath|/|$.params.dataset.paramJson.input_options.bam_tumor_directory|/",
+  "input_type_normal": "$.params.dataset.paramJson.input_options.input_type_normal",
+  "bam_normal_file": "$.params.dataset.paramJson.input_options.bam_normal_file",
+  "bam_normal_directory": "$.inputs[0].dataPath|/|$.params.dataset.paramJson.input_options.bam_normal_directory|/",
+  "ref": "$.params.dataset.paramJson.input_options.ref",
+  "bed": "$.params.dataset.paramJson.input_options.bed",
+  "tr_bed": "$.params.dataset.paramJson.input_options.tr_bed",
+
+  "snv": "$.params.dataset.paramJson.workflow_options.snv",
+  "sv": "$.params.dataset.paramJson.workflow_options.sv",
+  "mod": "$.params.dataset.paramJson.workflow_options.mod",
+  "skip_haplotype_filter": "$.params.dataset.paramJson.workflow_options.skip_haplotype_filter",
+  "fast_mode": "$.params.dataset.paramJson.workflow_options.fast_mode",
+  "germline": "$.params.dataset.paramJson.workflow_options.germline",
+  "phase_normal": "$.params.dataset.paramJson.workflow_options.phase_normal",
+  "liquid_tumor": "$.params.dataset.paramJson.workflow_options.liquid_tumor",
+  "min_sv_length": "$.params.dataset.paramJson.workflow_options.min_sv_length",
+  "force_strand": "$.params.dataset.paramJson.workflow_options.force_strand",
+  "diff_mod": "$.params.dataset.paramJson.workflow_options.diff_mod",
+
+  "hybrid_mode_vcf": "$.params.dataset.paramJson.sv_input_options.hybrid_mode_vcf",
+  "genotyping_mode_vcf": "$.params.dataset.paramJson.sv_input_options.genotyping_mode_vcf",
+  "normal_vcf": "$.params.dataset.paramJson.sv_input_options.normal_vcf",
+
+  "tumor_min_coverage": "$.params.dataset.paramJson.workflow_suboptions.tumor_min_coverage",
+  "normal_min_coverage": "$.params.dataset.paramJson.workflow_suboptions.normal_min_coverage",
+  "annotation": "$.params.dataset.paramJson.workflow_suboptions.annotation",
+  "override_basecaller_cfg": "$.params.dataset.paramJson.workflow_suboptions.override_basecaller_cfg",
+  "include_all_ctgs": "$.params.dataset.paramJson.workflow_suboptions.include_all_ctgs",
+  "depth_intervals": "$.params.dataset.paramJson.workflow_suboptions.depth_intervals",
+  
+  "ubam_map_threads": "$.params.dataset.paramJson.multiprocessing_options.ubam_map_threads",
+  "ubam_sort_threads": "$.params.dataset.paramJson.multiprocessing_options.ubam_sort_threads",
+  "ubam_bam2fq_threads": "$.params.dataset.paramJson.multiprocessing_options.ubam_bam2fq_threads",
+  "severus_threads": "$.params.dataset.paramJson.multiprocessing_options.severus_threads",
+  "dss_threads": "$.params.dataset.paramJson.multiprocessing_options.dss_threads",
+  "modkit_threads": "$.params.dataset.paramJson.multiprocessing_options.modkit_threads",
+  "haplotype_filter_threads": "$.params.dataset.paramJson.multiprocessing_options.haplotype_filter_threads"
+}
