@@ -119,18 +119,21 @@
         "properties": {
           "hybrid_mode_vcf": {
             "type": "string",
-            "format": "file-path",
+            "pathType": "dataset",
+            "file": "**/*.vcf",
             "description": "Enable hybrid calling mode that combines the *de novo* calling results and genotyping results at the positions in the VCF file given."
           },
           "genotyping_mode_vcf": {
             "type": "string",
-            "format": "file-path",
+            "pathType": "dataset",
+            "file": "**/*.vcf",
             "description": "VCF file input containing candidate sites to be genotyped. Variants will only be called at the sites in the VCF file if provided."
           },
           "normal_vcf": {
             "title": "Pre-computed normal VCF",
             "type": "string",
-            "format": "file-path",
+            "pathType": "dataset",
+            "file": "**/*.vcf",
             "description": "VCF file input containing normal sites for the given sample.",
             "help_text": "Pointing to a pre-computed normal VCF file will prevent the workflow from calling the germline sites for the normal sample, reducing processing time."
           },
@@ -170,7 +173,7 @@
           "force_strand": {
             "title": "Force strand",
             "type": "boolean",
-            "default": false,
+            "default": true,
             "description": "Require modkit to call strand-aware modifications.",
             "help_test": "By default strand calls are collapsed (strand reported as '.'). Enabling this will force stranding to be considered when calling modifications, creating one output per modification per strand and the report will be tabulated by both modification and strand."
           },
