@@ -7,6 +7,7 @@
   "bam_directory": "$.inputs[0].dataPath|/|$.params.dataset.paramJson.input_options.bam_directory|/",
   "ref": "$.params.dataset.paramJson.input_options.ref",
   "bed": "$.params.dataset.paramJson.input_options.bed",
+  "coverage_bed": "$.params.dataset.paramJson.input_options.coverage_bed",
 
   "sv": "$.params.dataset.paramJson.workflow_options.sv",
   "snp": "$.params.dataset.paramJson.workflow_options.snp",
@@ -22,7 +23,6 @@
   "phased": "$.params.dataset.paramJson.workflow_suboptions.phased",
   "annotation": "$.params.dataset.paramJson.workflow_suboptions.annotation",
   "override_basecaller_cfg": "$.params.dataset.paramJson.workflow_suboptions.override_basecaller_cfg",
-  "output_gene_summary": "$.params.dataset.paramJson.workflow_suboptions.output_gene_summary",
 
   "include_all_ctgs": "$.params.dataset.paramJson.advanced_options.include_all_ctgs",
   "depth_intervals": "$.params.dataset.paramJson.advanced_options.depth_intervals",
