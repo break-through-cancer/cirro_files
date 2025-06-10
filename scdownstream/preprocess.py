@@ -17,7 +17,8 @@ ds.logger.info(ds.files.columns)
 ds.logger.info("Checking samplesheet parameter")
 ds.logger.info(ds.samplesheet)
 samplesheet = ds.samplesheet
-samplesheet.rename(columns={"file":"filtered"})
+samplesheet['filtered'] = samplesheet['file']
+ds.logger.info(ds.samplesheet)
 samplesheet.to_csv('samplesheet.csv', index=None)
 ds.add_param("input", "samplesheet.csv")
 
