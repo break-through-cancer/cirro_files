@@ -1,5 +1,4 @@
 {
-  "input": "$.params.dataset.paramJson.input_output_options.input",
   "save_intermediates": "$.params.dataset.paramJson.input_output_options.save_intermediates",
   "multiqc_title": "$.params.dataset.paramJson.input_output_options.multiqc_title",
   "unify_gene_symbols": "$.params.dataset.paramJson.unify_options.unify_gene_symbols",
