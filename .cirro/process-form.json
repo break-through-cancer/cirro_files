@@ -11,7 +11,7 @@
         "title": "Background Subtraction",
         "description": "Whether or not to do background subtraction",
         "type": "boolean",
-        "default": ""
+        "default": "false"
       },
       "start-at": {
         "title": "Starting Point",
