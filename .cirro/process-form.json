@@ -1,0 +1,55 @@
+{
+  "form": {
+    "type": "object",
+    "properties": {
+      "sample-name": {
+        "title": "Sample Name",
+        "description": "Sample Name",
+        "type": "string"
+      },
+      "background": {
+        "title": "Background Subtraction",
+        "description": "Whether or not to do background subtraction",
+        "type": "boolean",
+        "default": ""
+      },
+      "start-at": {
+        "title": "Starting Point",
+        "description": "Starting point of the MCMICRO run",
+        "type": "string",
+        "default": "segmentation",
+        "enum": [
+          "illumination",
+          "registration",
+          "background",
+          "dearray",
+          "segmentation",
+          "watershed",
+          "quantification",
+          "downstream"
+        ]
+      },
+      "stop-at": {
+        "title": "Stopping point",
+        "description": "stopping point of MCMICRO",
+        "type": "string",
+        "default": "downstream",
+        "enum": [
+          "illumination",
+          "registration",
+          "background",
+          "dearray",
+          "segmentation",
+          "quantification",
+          "downstream"
+        ]
+      }
+    },
+    "required": [
+      "sample-name",
+      "background",
+      "stop-at"
+    ]
+  },
+  "ui": {}
+}

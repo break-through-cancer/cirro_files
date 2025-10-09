@@ -1,0 +1,8 @@
+{
+  "out": "$.dataset.dataPath",
+  "sample-name": "$.dataset.params.sample-name",
+  "background": "$.dataset.params.background",
+  "start-at": "$.dataset.params.start-at",
+  "stop-at": "$.dataset.params.stop-at",
+  "in": "$.inputs[*].dataPath"
+}
