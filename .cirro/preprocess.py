@@ -21,7 +21,8 @@ ds.logger.info("Checking samplesheet parameter")
 ds.logger.info(ds.samplesheet)
 
 # ADD WORKFLOW CONFIG FOR SEGMENTATION AND DOWNSTREAM ANALYSIS TOOLS
-ds.add_param("segmentation", '"[unmicst, ilastik]"')
+# ds.add_param("segmentation", '"[unmicst, ilastik]"')
+ds.add_param("segmentation", 'unmicst')
 ds.add_param("downstream", '"[scimap, fastpg, flowsom, scanpy]"')
 
 ds.logger.info(ds.params)
